@@ -11,5 +11,5 @@ then
         exit 1
     fi
 fi
-export NODE_OPTIONS=--experimental-vm-modules
-jest 
+export NODE_OPTIONS="--experimental-vm-modules --redirect-warnings=/tmp/node-warnings.log"
+jest
