@@ -12,8 +12,7 @@ Learn TDD and Emergent Design by Pair Programming on katas.
 
 * Your Thoughtworks MacBook (please don't use a client machine)
 * [Homebrew](https://brew.sh)
-* [Visual Studio Code](https://code.visualstudio.com) or
-* IntelliJ IDEA
+* [Visual Studio Code](https://code.visualstudio.com) or IntelliJ IDEA
 
 ### Installation
 
@@ -25,8 +24,9 @@ brew update
 ```
 brew install node npm
 ```
-6. Install remote collaboration plugins for your IDE:
-    - Share code from IDE: [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare)
+6. Install the remote collaboration plugin for your IDE:
+    - VS Code: install [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare)
+    - IntelliJ: ensure [Code With Me](https://www.jetbrains.com/help/idea/code-with-me.html) is enabled
 
 
 ### Environment setup
@@ -38,7 +38,7 @@ brew install node npm
 git clone git@github.com:<username>/technical-coaching.git
 ```
 
-3. Change directory to the repo
+3. Change directory
 ```
 cd technical-coaching/<kata of choice>
 ```
