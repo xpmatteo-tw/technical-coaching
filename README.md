@@ -12,7 +12,8 @@ Learn TDD and Emergent Design by Pair Programming on katas.
 
 * Your Thoughtworks MacBook (please don't use a client machine)
 * [Homebrew](https://brew.sh)
-* [Visual Studio Code](https://code.visualstudio.com)
+* [Visual Studio Code](https://code.visualstudio.com) or
+* IntelliJ IDEA
 
 ### Installation
 
@@ -20,11 +21,11 @@ Learn TDD and Emergent Design by Pair Programming on katas.
 ```
 brew update
 ```
-2. Install node
+2. Install node and npm
 ```
-brew install node
+brew install node npm
 ```
-6. Install VS Code plugins:
+6. Install remote collaboration plugins for your IDE:
     - Share code from IDE: [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare)
 
 
@@ -34,18 +35,23 @@ brew install node
 
 2. Clone your forked repo
 ```
-git clone git@github.com:<username>/connected-learning-swe.git
+git clone git@github.com:<username>/technical-coaching.git
 ```
 
-3. Navigate to subdirectory
+3. Change directory to the repo
 ```
-cd connected-learning-swe/skills-based-technical-coaching-program/katas-ruby
+cd technical-coaching/<kata of choice>
 ```
 
-4. Open in VS Code
+4. Open in your favorite IDE
 ```
 code .
 ```
+or
+```
+idea .
+```
+
 
 ## Usage
 
