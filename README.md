@@ -56,9 +56,13 @@ idea .
 ## Usage
 
 ### Run tests
-
 ```
 ./test.sh
+```
+
+### Run tests continuously
+```
+./test.sh --watch
 ```
 
 ## Katas
