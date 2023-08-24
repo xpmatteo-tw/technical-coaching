@@ -43,7 +43,16 @@ git clone git@github.com:<username>/technical-coaching.git
 cd technical-coaching/<kata of choice>
 ```
 
-4. Open in your favorite IDE
+4. Ensure you have installed Jest globally if you haven't already
+```
+npm install jest --global
+```
+or
+```
+yarn global add jest
+```
+
+5. Open in your favorite IDE
 ```
 code .
 ```
