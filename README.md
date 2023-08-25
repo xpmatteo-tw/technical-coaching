@@ -24,7 +24,15 @@ brew update
 ```
 brew install node npm
 ```
-6. Install the remote collaboration plugin for your IDE:
+3. Ensure you have installed Jest globally if you haven't already
+```
+npm install jest --global
+```
+or
+```
+yarn global add jest
+```
+4. Install the remote collaboration plugin for your IDE:
     - VS Code: install [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare)
     - IntelliJ: ensure [Code With Me](https://www.jetbrains.com/help/idea/code-with-me.html) is enabled
 
