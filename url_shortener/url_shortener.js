@@ -7,7 +7,7 @@ class URLShortener {
     }
 
     async shorten(full_length_url) {
-        const short_url = `https://conn.io/${Math.trunc(Math.random() * 10000)}`;
+        const short_url = `https://tw.ks/${Math.trunc(Math.random() * 10000)}`;
         await this.db.add(short_url, full_length_url);
         return short_url;
     }
