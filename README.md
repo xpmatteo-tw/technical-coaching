@@ -155,6 +155,26 @@ This will be the game engine which follows the rules of bowling:
 * In the tenth frame a player who rolls a spare / strike gets an extra roll(s) to complete the frame.
 * No more than 3 rolls can be rolled in the 10th frame.
 
+## Prime Factors
+Made popular by [Uncle Bob](http://butunclebob.com/ArticleS.UncleBob.ThePrimeFactorsKata).
+
+This kata demonstrates the [`transformation priority premise`](https://en.wikipedia.org/wiki/Transformation_Priority_Premise).
+
+Write a function `generate` under a module `PrimeFactors` that, given an integer, returns the list
+containing the prime factors in numerical sequence.
+
+* 1 should return `[]`
+* 2 should return `[2]`
+* 3 should return `[3]`
+* 4 should return `[2,2]`
+* 5 should return `[5]`
+* 6 should return `[2,3]`
+* 7 should return `[7]`
+* 8 should return `[2,2,2]`
+* 9 should return `[3,3]`
+* 4620 should return `[2,2,3,5,7,11]`
+
+
 ## Links
 
 - [Old tdd-katas repository in JavaScript](https://github.com/connected-psobocinski/tdd-katas)
