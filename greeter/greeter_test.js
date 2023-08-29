@@ -1,7 +1,7 @@
 'use strict';
 
-import { Greeter } from './greeter.mjs';
+const Greeter = require('./greeter.js')
 
 test('test runner is set up correctly', () => {
-    expect(0).toEqual(1);
+    expect(0).toBe(1);
 });
