@@ -6,8 +6,8 @@ const port = 8080;
 const server = http.createServer((req, res) => {
     console.log(req.url)
     res.setHeader('Content-Type', 'application/json');
-    if (req.url === '/hello') {
-        serve_hello(req, res);
+    if (req.url === '/greet') {
+        serve_greet(req, res);
     } else {
         serve_not_found(req, res);
     }
@@ -23,7 +23,7 @@ function serve_not_found(req, res) {
     res.end(JSON.stringify(message));
 }
 
-function serve_hello(req, res) {
+function serve_greet(req, res) {
     res.statusCode = 200;
     const message = {message: "Hello, world!"};
     res.end(JSON.stringify(message));

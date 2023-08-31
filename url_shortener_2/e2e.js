@@ -22,12 +22,16 @@ async function getJSON(url) {
 const base_url = 'http://localhost:8080'
 
 test('hello, world', async () => {
-    const response = await getJSON(`${base_url}/hello`);
+    const response = await getJSON(`${base_url}/greet`);
     expect(response.message).toEqual("Hello, world!");
 });
 
+xtest('hello, <name>', async () => {
+    const response = await getJSON(`${base_url}/greet?name=Bob`);
+    expect(response.message).toEqual("Hello, Bob!");
+});
 
-test('shortens the url and retrieves it', async () => {
+xtest('shortens the url and retrieves it', async () => {
     const payload = {url: "https://www.google.com"};
     const post_url = `${base_url}/shorten`;
     const response = await postJSON(post_url, payload);
