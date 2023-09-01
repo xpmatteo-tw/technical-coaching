@@ -9,7 +9,7 @@ function not_found_controller(req, res) {
     res.end(JSON.stringify(body));
 }
 
-function hello_controller(req, res) {
+function greet_controller(req, res) {
     res.statusCode = 200;
     const body = {message: "Hello, world"};
     res.end(JSON.stringify(body));
@@ -18,7 +18,7 @@ function hello_controller(req, res) {
 const server = http.createServer((req, res) => {
     console.log(req.url)
     if (req.url === '/greet') {
-        hello_controller(req, res);
+        greet_controller(req, res);
     } else {
         not_found_controller(req, res);
     }

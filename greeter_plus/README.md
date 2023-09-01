@@ -22,7 +22,7 @@ We will implement a version of the greeter service that will respond over an HTT
 5. Now the `./e2e.js` should pass.  Unskip the next test and see it fail
     - **Coach:** Our goal is to enable us to move as quickly as possible to the level of unit test.  In order to do this, we want to extract the **logic** that returns the "hello, ..." string to a pure function, that does not depend on `node` http technology.
     - Skip the test again so that we go back to green.
-6. Move the "hello, world" logic to the `hello_service` function in the `hello_feature.js`. It does not pass the Hello, <name>) test yet.  Make `server.js` use the `hello_service` function.  Check that the `./e2e.js` is still passing.
+6. Move the "hello, world" logic to the `greet_service` function in the `greet_feature.js`. It does not pass the Hello, <name>) test yet.  Make `server.js` use the `greet_service` function.  Check that the `./e2e.js` is still passing.
 =======
 ## Greeter+ kata
 
@@ -45,8 +45,8 @@ We will implement a version of the greeter service that will respond over an HTT
 - Now the `./e2e.js` should pass.  Unskip the next test and see it fail
     - **Coach:** Our goal is to enable us to move as quickly as possible to the level of unit test.  In order to do this, we want to extract the **logic** that returns the "hello, ..." string to a pure function, that does not depend on `node` http technology.
     - Skip the test again so that we go back to green.
-- Move the "hello, world" logic to the `hello_service` function in the `hello_feature.js`. It does not pass the Hello, <name>) test yet.  Make `server.js` use the `hello_service` function.  Check that the `./e2e.js` is still passing.
-   - **Coach** our goal now is to ensure that when we pass a url parameter such as `/greet?name=Bob` in our http request, the `hello_service` function receives a plain object `{name: "Bob"}`, that we can use for our logic.  You might want to use `console.log` for this.
+- Move the "hello, world" logic to the `greet_service` function in the `greet_feature.js`. It does not pass the Hello, <name>) test yet.  Make `server.js` use the `greet_service` function.  Check that the `./e2e.js` is still passing.
+   - **Coach** our goal now is to ensure that when we pass a url parameter such as `/greet?name=Bob` in our http request, the `greet_service` function receives a plain object `{name: "Bob"}`, that we can use for our logic.  You might want to use `console.log` for this.
    - **Coach**: discuss appropriate use of `console.log`:
      - It works well when you are exploring unknown technology
      - When you are unit testing and your implementations does not work, it's best to simplify the test rather than use `console.log`
