@@ -12,9 +12,10 @@ function serve_not_found(req, res) {
 
 const server = http.createServer((req, res) => {
     console.log(req.url)
+    const parsed_url = new URL(req.url, `http://${hostname}:${port}`);
     res.setHeader('Content-Type', 'application/json');
-    if (req.url === '/greet') {
-        serve_greet(req, res);
+    if (parsed_url.pathname === '/greet') {
+        serve_greet(parsed_url, res);
     } else {
         serve_not_found(req, res);
     }
