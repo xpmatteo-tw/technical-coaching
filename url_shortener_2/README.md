@@ -17,3 +17,29 @@ Start the server, then
 ```shell
 ./e2e.js
 ```
+
+## Hints with Node built-in http
+
+
+Responding to a get request
+```javascript
+http.createServer((req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.statusCode = 200;
+  res.end(JSON.stringify({foo: "bar"}));
+})
+```
+
+Parsing the query string:
+```javascript
+http.createServer((req, res) => {
+  const parsed_url = new URL(req.url, `http://${hostname}:${port}`);
+  const params = Object.fromEntries(parsed_url.searchParams);
+  
+  // etc.
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'application/json');
+  res.end(JSON.stringify({foo: "bar"}));
+})
+```
+
