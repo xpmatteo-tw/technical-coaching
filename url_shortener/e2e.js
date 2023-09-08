@@ -31,12 +31,3 @@ test('hello, world', async () => {
     expect(response.message).toEqual("Hello, world!");
 });
 
-xtest('hello, <name>', async () => {
-    const response = await getJSON(`${base_url}/greet?name=Bob`);
-    expect(response.message).toEqual("Hello, Bob!");
-});
-
-xtest('hello, <name> and lucky number', async () => {
-    const response = await getJSON(`${base_url}/greet?name=Alice&lucky_number`);
-    expect(response.message).toMatch(/Hello, Alice! Your lucky number is \d\d\d\d/);
-});

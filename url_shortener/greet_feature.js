@@ -1,11 +1,9 @@
 
 class GreetController {
     handle(req, resp) {
-        res.statusCode = 200;
         const body = {message: "Hello, world"};
-        res.end(JSON.stringify(body));
+        return {statusCode: 200, body: body};
     }
 }
-
 
 module.exports = GreetController;

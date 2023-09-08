@@ -1,27 +1,34 @@
-const http= require('http');
+const http = require('http');
 const GreetController = require('./greet_feature.js');
 
 const hostname = '127.0.0.1';
 const port = 8080;
 
 class NotFoundController {
-    async handle(req, res) {
-        res.statusCode = 404;
+    handle(req, res) {
         const body = {message: "Not found"};
-        res.end(JSON.stringify(body));
+        return {statusCode: 404, body: body}
     }
 }
 
 const notFoundController = new NotFoundController();
 const greetController = new GreetController();
 
+function findController(req) {
+    if (req.url === '/greet') {
+        return greetController;
+    } else {
+        return notFoundController;
+    }
+}
+
 const server = http.createServer((req, res) => {
     console.log(req.url)
-    if (req.url === '/greet') {
-        greetController.handle(req, res);
-    } else {
-        notFoundController.handle(req, res);
-    }
+    let controller = findController(req);
+    const {statusCode, body} = controller.handle(req, res);
+    res.setHeader('Content-Type', 'application/json');
+    res.statusCode = statusCode;
+    res.end(JSON.stringify(body));
 });
 
 server.listen(port, hostname, () => {
