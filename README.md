@@ -118,6 +118,10 @@ Write a method `add` under an object `StringCalculator` that, given a delimited 
 8. A single char delimiter can be defined on the first line starting with `//` (e.g `//#\n1#2` for a ‘#’ as the delimiter)
 9. A multi char delimiter can be defined on the first line starting with `//` (e.g. `//###\n1###2` for ‘###’ as the delimiter)
 
+### Url shortener
+
+--> see the README in the `url_shortener` directory
+
 ### Roman Numerals Conversion
 
 1. Given a Roman Numeral, return as an Integer

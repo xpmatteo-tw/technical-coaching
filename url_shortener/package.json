@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "key-file-storage": "^2.2.10"
+  }
+}
