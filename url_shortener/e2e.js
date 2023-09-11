@@ -1,5 +1,10 @@
 #!/usr/bin/env jest --testRegex e2e.js
 
+if (typeof fetch === "undefined") {
+    console.log("Please install node version 18 or later")
+    process.exit(1)
+}
+
 async function postJSON(url, data) {
     const response = await fetch(url, {
         method: "POST",
