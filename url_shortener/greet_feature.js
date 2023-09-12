@@ -1,6 +1,6 @@
 
 class GreetController {
-    handle(req, resp) {
+    handle(query, payload) {
         const body = {message: "Hello, world"};
         return {statusCode: 200, body: body};
     }

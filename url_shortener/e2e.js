@@ -37,7 +37,7 @@ test('hello, world', async () => {
 });
 
 xtest('hello, <name>', async () => {
-    const response = await getJSON(`${base_url}/greet/Bob`);
+    const response = await getJSON(`${base_url}/greet?name=Bob`);
     expect(response.message).toEqual("Hello, Bob!");
 });
 
