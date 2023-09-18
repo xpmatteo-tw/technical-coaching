@@ -9,7 +9,7 @@ const server = http.createServer((req, res) => {
         const controller = findController(req);
         const query = parseQueryString(req);
 
-        const {statusCode, body} = controller.handle(query, payload);
+        const {statusCode, body} = controller.handle(req.url, query, payload);
 
         res.setHeader('Content-Type', 'application/json');
         res.statusCode = statusCode;
@@ -30,7 +30,7 @@ function findController(req) {
 }
 
 class NotFoundController {
-    handle(query, payload) {
+    handle(url, query, payload) {
         const body = {message: "Not found"};
         return {statusCode: 404, body: body}
     }
