@@ -1,17 +1,40 @@
 const UrlShortenerController = require('./url_shortener_feature.js');
 
+const randomNumberGenerator = {
+    generate: jest.fn(),
+}
+
 const controller = new UrlShortenerController();
 
-describe('Shortening the url', () => {
+beforeEach(() => {
+    jest.clearAllMocks();
+});
 
-    xtest('it shortens the url', () => {
-        const {body} = controller.handle('/shorten', {}, {url: 'https://www.google.com'});
-        expect(body.shortened_url).toBe('https://tw.ks/1234');
+describe('Shortening the url', () => {
+    xtest('it returns 201', () => {
+        const {statusCode} = controller.handle('/url/shorten', {}, {url: 'https://www.google.com'});
+
+        expect(statusCode).toBe(201);
     });
 
     xtest('it saves the url in the database', () => {
 
     });
 
+    xtest('it shortens the url', () => {
+    });
+
+    xtest('it saves the url in the database', () => {
+    });
 });
 
+describe('Retrieving the url', () => {
+    xtest('it returns 200', () => {
+        const {statusCode} = controller.handle('/url/retrieve', {shortened_url: 'http://tw.ks/2345'}, {});
+
+        expect(statusCode).toBe(200);
+    });
+
+    xtest('it returns the original url', () => {
+    });
+});
