@@ -52,5 +52,45 @@ Start the server, then
 ```shell
 ./e2e.js
 ```
+or
+```shell
+./e2e.js --watch
+```
+
+## Executing the unit tests
+
+```shell
+./test.sh
+```
+or
+```shell
+./test.sh --watch
+```
+
+## How to create test doubles in Jest
+
+This is a mock object:
+```javascript
+const myFoo = {
+    foo: jest.fn(),
+}
+```
+
+This is how you would stub a return value:
+```javascript
+myFoo.foo.mockReturnValue("something");
+```
+So that now whenever you invoke `myFoo.foo()`, it will return the string `"something"`.
+
+And this is how you check that how the mock function called: if the production
+code executes`myFoo.foo('first arg', 'second arg')`, then the following assertion succeeds: 
+```javascript
+expect(myFoo.foo.mock.calls[0]).toEqual(['first arg', 'second arg']);
+```
+
+
+
+
+
 
 
