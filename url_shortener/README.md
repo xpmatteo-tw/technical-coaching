@@ -76,13 +76,13 @@ const myFoo = {
 }
 ```
 
-This is how you would stub a return value:
+This is how you stub a return value:
 ```javascript
 myFoo.foo.mockReturnValue("something");
 ```
-So that now whenever you invoke `myFoo.foo()`, it will return the string `"something"`.
+Now, whenever you invoke `myFoo.foo()`, it will return the string `"something"`.
 
-And this is how you check that how the mock function called: if the production
+And this is how you check how the mock function called: if the production
 code executes`myFoo.foo('first arg', 'second arg')`, then the following assertion succeeds: 
 ```javascript
 expect(myFoo.foo.mock.calls[0]).toEqual(['first arg', 'second arg']);
