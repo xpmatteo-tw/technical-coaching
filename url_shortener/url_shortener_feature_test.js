@@ -17,10 +17,6 @@ describe('Shortening the url', () => {
         expect(statusCode).toBe(201);
     });
 
-    xtest('it saves the url in the database', () => {
-
-    });
-
     xtest('it shortens the url', () => {
     });
 
