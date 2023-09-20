@@ -30,7 +30,7 @@ describe('Shortening the url', () => {
 
 describe('Retrieving the url', () => {
     xtest('it returns 200', () => {
-        const {statusCode} = controller.handle('/url/retrieve', {shortened_url: 'http://tw.ks/2345'}, {});
+        const {statusCode} = controller.handle('/url/retrieve', {shortenedUrl: 'http://tw.ks/2345'}, {});
 
         expect(statusCode).toBe(200);
     });

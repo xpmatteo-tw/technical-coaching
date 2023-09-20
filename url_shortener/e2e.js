@@ -18,36 +18,44 @@ async function postJSON(url, data) {
     return response.json();
 }
 
-async function getJSON(url, expected_status = 200) {
+async function getJSON(url, expectedStatus = 200) {
     const response = await fetch(url);
-    expect(response.status).toBe(expected_status);
+    expect(response.status).toBe(expectedStatus);
     return response.json();
 }
 
-const base_url = 'http://localhost:8080'
+const BASE_URL = 'http://localhost:8080'
 
 test('not found', async () => {
-    const {message} = await getJSON(`${base_url}/kljhdf`, 404);
+    const {message} = await getJSON(`${BASE_URL}/kljhdf`, 404);
     expect(message).toEqual("Not found");
 });
 
 test('hello, world', async () => {
-    const {message} = await getJSON(`${base_url}/greet`, 200);
+    const {message} = await getJSON(`${BASE_URL}/greet`, 200);
     expect(message).toEqual("Hello, world!");
 });
 
 xtest('hello, <name>', async () => {
-    const response = await getJSON(`${base_url}/greet?name=Bob`);
+    const response = await getJSON(`${BASE_URL}/greet?name=Bob`);
     expect(response.message).toEqual("Hello, Bob!");
 });
 
-xtest('shortens the url and retrieves it', async () => {
-    const payload = {url: "https://www.google.com"};
-    const post_url = `${base_url}/shorten`;
-    const {shortened_url} = await postJSON(post_url, payload);
-    expect(shortened_url).toMatch(/https:\/\/tw.ks\/\d+/);
+describe('URL Shortener', () => {
+    async function shortenUrl() {
+        const payload = {url: "https://www.google.com"};
+        const body = await postJSON(`${BASE_URL}/url/shorten`, payload);
+        return body.shortenedUrl;
+    }
 
-    const get_url = `${base_url}?shortened_url=${shortened_url}`;
-    const {original_url} = await getJSON(get_url);
-    expect(original_url).toEqual("https://www.google.com");
+    xtest('shortens the url', async () => {
+        const shortenedUrl = await shortenUrl();
+        expect(shortenedUrl).toMatch(/https:\/\/tw.ks\/\d+/);
+    });
+
+    xtest('retrieves the url', async () => {
+        const shortenedUrl = await shortenUrl();
+        const {originalUrl} = await getJSON(`${BASE_URL}/url/retrieve?shortenedUrl=${shortenedUrl}`);
+        expect(originalUrl).toEqual("https://www.google.com");
+    });
 });
