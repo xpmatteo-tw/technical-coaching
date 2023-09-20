@@ -1,1 +1,1 @@
-jest $*
+jest --verbose $*

@@ -1,4 +1,4 @@
-#!/usr/bin/env jest --testRegex e2e.js
+#!/usr/bin/env jest --verbose --testRegex e2e.js
 
 if (typeof fetch === "undefined") {
     console.log("Please install node version 18 or later")
