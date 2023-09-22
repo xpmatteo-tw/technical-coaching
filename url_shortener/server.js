@@ -4,10 +4,10 @@ const hostname = '127.0.0.1';
 const port = 8080;
 
 const server = http.createServer(async (req, res) => {
-    console.log(req.url);
     const payload = await parsePayload(req)
-    const controller = findController(req);
     const query = parseQueryString(req);
+    const controller = findController(req);
+    console.log("url:", req.url, "\tquery:", query, "\tpayload:", payload);
 
     const {statusCode, body} = controller.handle(req.url, query, payload);
 
