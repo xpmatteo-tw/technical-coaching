@@ -3,18 +3,17 @@ const GreetController = require('./greet_feature.js');
 const hostname = '127.0.0.1';
 const port = 8080;
 
-const server = http.createServer((req, res) => {
+const server = http.createServer(async (req, res) => {
     console.log(req.url);
-    parsePayload(req, payload => {
-        const controller = findController(req);
-        const query = parseQueryString(req);
+    const payload = await parsePayload(req)
+    const controller = findController(req);
+    const query = parseQueryString(req);
 
-        const {statusCode, body} = controller.handle(req.url, query, payload);
+    const {statusCode, body} = controller.handle(req.url, query, payload);
 
-        res.setHeader('Content-Type', 'application/json');
-        res.statusCode = statusCode;
-        res.end(JSON.stringify(body));
-    });
+    res.setHeader('Content-Type', 'application/json');
+    res.statusCode = statusCode;
+    res.end(JSON.stringify(body));
 });
 
 server.listen(port, hostname, () => {
@@ -44,19 +43,21 @@ function parseQueryString(req) {
     return Object.fromEntries(parsed_url.searchParams);
 }
 
-function parsePayload(req, onSuccess) {
-    if (req.method !== 'POST') {
-        onSuccess({});
-        return;
-    }
+function parsePayload(req) {
+    return new Promise((resolve) => {
+        if (req.method !== 'POST') {
+            resolve({});
+            return;
+        }
 
-    let requestBody = [];
-    req.on('data', (chunks)=>{
-        requestBody.push(chunks);
-    });
+        let requestBody = [];
+        req.on('data', (chunks) => {
+            requestBody.push(chunks);
+        });
 
-    req.on('end', ()=>{
-        onSuccess(Buffer.concat(requestBody).toString());
-    });
+        req.on('end', () => {
+            resolve(Buffer.concat(requestBody).toString());
+        });
+    })
 }
 
