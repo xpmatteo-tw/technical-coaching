@@ -1,9 +1,7 @@
 #!/usr/bin/env jest --verbose --testRegex e2e.js
 
-if (typeof fetch === "undefined") {
-    console.log("Please install node version 18 or later")
-    process.exit(1)
-}
+// this should work in older versions of node
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 async function postJSON(url, data) {
     const response = await fetch(url, {
