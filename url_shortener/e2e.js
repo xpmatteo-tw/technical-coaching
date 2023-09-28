@@ -1,7 +1,6 @@
 #!/usr/bin/env jest --verbose --testRegex e2e.js
 
-// this should work in older versions of node
-const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const fetch = require('node-fetch');
 
 async function postJSON(url, data) {
     const response = await fetch(url, {

@@ -1,4 +1,4 @@
-const UrlShortenerController = require('./url_shortener_feature.js');
+const UrlShortenerController = require('./url_shortener_controller.js');
 
 const randomNumberGenerator = {
     generate: jest.fn(),

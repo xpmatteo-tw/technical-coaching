@@ -1,5 +1,5 @@
 const http = require('http');
-const GreetController = require('./greet_feature.js');
+const GreetController = require('./greet_controller.js');
 const hostname = '127.0.0.1';
 const port = 8080;
 

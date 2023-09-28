@@ -31,7 +31,7 @@ We want to practice the "double loop" of ATDD:
 ## Installation
 
 ```shell
-npm install key-file-storage
+npm install node-fetch@2 key-file-storage
 ```
 
 ## Starting the server
