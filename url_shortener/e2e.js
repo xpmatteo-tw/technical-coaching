@@ -36,8 +36,10 @@ test('hello, world', async () => {
 });
 
 xtest('hello, <name>', async () => {
-    const response = await getJSON(`${BASE_URL}/greet?name=Bob`);
-    expect(response.message).toBe("Hello, Bob!");
+    const [status, body] = await getJSON(`${BASE_URL}/greet?name=Bob`);
+
+    expect(status).toBe(200);
+    expect(body.message).toBe("Hello, Bob!");
 });
 
 describe('URL Shortener', () => {
