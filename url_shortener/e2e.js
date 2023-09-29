@@ -41,20 +41,15 @@ xtest('hello, <name>', async () => {
 });
 
 describe('URL Shortener', () => {
-    async function shortenUrl() {
-        const payload = {url: "https://www.google.com"};
-        return postJSON(`${BASE_URL}/url/shorten`, payload);
-    }
-
     xtest('shortens the url', async () => {
-        const [status, body] = await shortenUrl();
+        const [status, body] = await postJSON(`${BASE_URL}/url/shorten`, {url: "https://www.google.com"});
 
         expect(status).toBe(201);
         expect(body.shortenedUrl).toMatch(/https:\/\/tw.ks\/\d+/);
     });
 
     xtest('retrieves the url', async () => {
-        const [_, {shortenedUrl}] = await shortenUrl();
+        const [_, {shortenedUrl}] = await postJSON(`${BASE_URL}/url/shorten`, {url: "https://www.google.com"});
 
         const [status, body] = await getJSON(`${BASE_URL}/url/retrieve?shortenedUrl=${shortenedUrl}`);
 
