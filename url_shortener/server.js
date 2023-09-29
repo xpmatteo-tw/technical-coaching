@@ -1,5 +1,4 @@
 const http = require('http');
-const GreetController = require('./greet_controller.js');
 const hostname = '127.0.0.1';
 const port = 8080;
 
@@ -20,11 +19,13 @@ server.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
 });
 
+const GreetController = require('./greet_controller.js');
+
 function findController(req) {
     if (req.url.startsWith('/greet')) {
-        return greetController;
+        return new GreetController();
     } else {
-        return notFoundController;
+        return new NotFoundController();
     }
 }
 
@@ -34,9 +35,6 @@ class NotFoundController {
         return {statusCode: 404, body: body}
     }
 }
-const notFoundController = new NotFoundController();
-
-const greetController = new GreetController();
 
 function parseQueryString(req) {
     const parsed_url = new URL(req.url, `http://${hostname}:${port}`);
