@@ -2,7 +2,7 @@ class UrlShortenerController {
     constructor() {
     }
 
-    handle(url, params, payload) {
+    respondTo(url, params, payload) {
     }
 }
 

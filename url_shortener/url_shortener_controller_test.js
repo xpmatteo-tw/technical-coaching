@@ -12,7 +12,7 @@ beforeEach(() => {
 
 describe('Shortening the url', () => {
     xtest('it returns 201', () => {
-        const {statusCode} = controller.handle('/url/shorten', {}, {url: 'https://www.google.com'});
+        const {statusCode} = controller.respondTo('/url/shorten', {}, {url: 'https://www.google.com'});
 
         expect(statusCode).toBe(201);
     });
@@ -26,7 +26,7 @@ describe('Shortening the url', () => {
 
 describe('Retrieving the url', () => {
     xtest('it returns 200', () => {
-        const {statusCode} = controller.handle('/url/retrieve', {shortenedUrl: 'http://tw.ks/2345'}, {});
+        const {statusCode} = controller.respondTo('/url/retrieve', {shortenedUrl: 'http://tw.ks/2345'}, {});
 
         expect(statusCode).toBe(200);
     });
