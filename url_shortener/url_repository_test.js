@@ -1,5 +1,5 @@
-const sqlite3= require('sqlite3')
-const { open } = require('sqlite')
+const sqlite3 = require('sqlite3')
+const {open} = require('sqlite')
 
 // See documentation at https://www.npmjs.com/package/sqlite?activeTab=readme
 
