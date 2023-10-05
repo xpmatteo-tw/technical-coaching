@@ -30,9 +30,16 @@ We want to practice the "double loop" of ATDD:
 
 ## Installation
 
+This is needed to ensure our `server.js` script works on older versions of `node`
 ```shell
-npm install node-fetch@2 key-file-storage
+npm install node-fetch@2
 ```
+
+This is needed to connect to sqlite3
+```shell
+npm install sqlite --save
+```
+
 
 ## Starting the server
 ```shell
