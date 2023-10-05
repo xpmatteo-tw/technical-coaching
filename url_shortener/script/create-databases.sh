@@ -42,7 +42,7 @@ if ! env sqlite3 --version > /dev/null; then
     exit 1
 fi
 
-for db in ./db/data/development.sqlite3 ./db/data/test.sqlite3; do
+for db in ./db/data/development.db ./db/data/test.db; do
     db_name=$(basename $db)
     ## Step 0: destroy old local DBS
     echo "$db_name destroying... bye bye!"
