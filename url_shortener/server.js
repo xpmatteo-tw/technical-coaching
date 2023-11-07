@@ -8,7 +8,13 @@ const server = http.createServer(async (req, res) => {
     const controller = findController(req);
     console.log("url:", req.url, "\tquery:", query, "\tpayload:", payload);
 
-    const {statusCode, body} = controller.respondTo(req.url, query, payload);
+    let statusCode, body;
+    try {
+        ({statusCode, body} = controller.respondTo(req.url, query, payload));
+    } catch (error) {
+        console.log(error);
+        ({statusCode, body} = {statusCode: 500, body: {message: "Internal server error"}});
+    }
 
     res.setHeader('Content-Type', 'application/json');
     res.statusCode = statusCode;
