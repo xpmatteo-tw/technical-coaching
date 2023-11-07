@@ -54,7 +54,7 @@ function parsePayload(req) {
         });
 
         req.on('end', () => {
-            resolve(Buffer.concat(requestBody).toString());
+            resolve(JSON.parse(Buffer.concat(requestBody).toString()));
         });
     })
 }
